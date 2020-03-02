@@ -135,6 +135,7 @@ def compute_accuracy(predictions, test_len):
 
     y = euclidean_distance((predictions[:,0:40],predictions[:,80:120])).eval()
     precision = np.sum(np.where(y>0.5,1,0))/ test_len
+    sess.close()
     return recall,precision
 
 r,p = compute_accuracy(pred, len(x_test))
